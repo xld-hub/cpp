@@ -129,6 +129,7 @@ public:
         {
             i=count+p->val+q->val;
             w->next=new ListNode(i%10);
+			//是否进位
             count=i>=10?true:false;
             w=w->next;
             p=p->next;
