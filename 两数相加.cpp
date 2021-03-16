@@ -14,29 +14,23 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+
 //初始化函数
 ListNode *CreateList(int con_val[],int len)
 {
-	ListNode *Head = new ListNode();
-	ListNode *tail = new ListNode();
-	ListNode *temp;
-	Head = tail;
-
-	for (size_t i = 0; i < len; i++)
+	ListNode *Head ;
+    ListNode *Temp = new ListNode(con_val[0]);
+    Head = Temp;
+	for (size_t i = 1; i < len; i++)
 	{
-		temp = new ListNode();
-		temp->val = *con_val;
-		// temp->next = NULL;
-		tail->next = temp;
-		tail = temp;
-		con_val++;
+        Temp->next = new ListNode(con_val[i]);
+        Temp = Temp->next;
 	}
-
 	return Head;
 }
+
 void ShowList(ListNode *List)
 {
-	List = List->next;
 	do
 	{
 		cout<<List->val<<"-";
