@@ -44,7 +44,7 @@ class Solution {
 public:
     bool isPalindrome(ListNode* head) {//O(n)、O(1)
         ListNode* slow = head, *fast = head,  *prev = nullptr;
-        while (fast){//find mid node
+        while (fast){//find mid node right
             slow = slow->next;
             fast = fast->next ? fast->next->next: fast->next;
         }
@@ -55,7 +55,7 @@ public:
             prev = slow;
             slow = temp;
         }
-        
+
         while (head && prev){//check
             if (head->val != prev->val){
                 return false;
@@ -69,7 +69,7 @@ public:
 
 int main()
 {
-    int num[]={};
+    int num[]={1,2,2,1};
     ListNode *head;
     head = CreateList(num,sizeof(num)/sizeof(int));
     Solution solution;
