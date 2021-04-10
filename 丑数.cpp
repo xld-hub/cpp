@@ -7,9 +7,9 @@ public:
     bool isUgly(int num)
     {
         if(num <= 0) return 0;
-        while(num%3==0)num/=3;
-        while(num%5==0)num/=5;
-        return (num&num-1) == 0;
+        while(num%3==0)num/=3;//被3整除
+        while(num%5==0)num/=5;//被5整除
+        return (num&num-1) == 0; //被2整除
     }
 };
 
