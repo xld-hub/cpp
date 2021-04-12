@@ -22,7 +22,8 @@ public:
 
         // 将排序后的数组转为字符串
         string ans = "";
-        for(int n:nums) ans += to_string(n);
+        for(int n:nums) 
+            ans += to_string(n);
         // 输入为 [0,0] 时，输出应该为 "0"
         return ans[0]=='0'? "0" : ans; 
     }
