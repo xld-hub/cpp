@@ -5,25 +5,26 @@ using namespace std;
 
 class Solution{
 public:
-    bool Compare(const int num1, const int num2)
-    {
-        auto strNum1 = to_string(num1);
-        auto strNum2 = to_string(num2);
-        return strNum1+strNum2 > strNum2 + strNum1;
-    }
-    string largestNumber(vector<int>& nums) {
-        
-        sort(nums.begin(), nums.end(), [&](const int num1, const int num2){return Compare(num1, num2);});
-        string res;
-        for(auto iter:nums)
-            res = res + to_string(iter);
-        auto index = 0;
-        while(index < res.length() && res[index] == '0')
-            ++index;
-        if(index>=res.length())
-            return "0";
 
-        return res.substr(index);
+    string largestNumber(vector<int>& nums) {
+
+        // 将 nums 中的元素按照如下示例规则排序：
+        // 因 "2" + "10" > "10" + "2" , 故 2 排在 10 的前面 
+        sort(
+            nums.begin(), 
+            nums.end(), 
+            [&](int x, int y){
+                string a = to_string(x);
+                string b = to_string(y);
+                return a + b > b + a;
+            }
+        );
+
+        // 将排序后的数组转为字符串
+        string ans = "";
+        for(int n:nums) ans += to_string(n);
+        // 输入为 [0,0] 时，输出应该为 "0"
+        return ans[0]=='0'? "0" : ans; 
     }
 };
 
