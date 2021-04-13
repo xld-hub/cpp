@@ -63,7 +63,7 @@ TreeNode * buildTree(int arr[],int i,int n)//建立二叉树
 class Solution {
 public:
     int min = 65535;
-    int prev = -100000;//0 <= Node.val <= 10^5
+    int prev = -10000;//0 <= Node.val <= 10^5
     int minDiffInBST(TreeNode* root) {
         if (root != nullptr) {
 
